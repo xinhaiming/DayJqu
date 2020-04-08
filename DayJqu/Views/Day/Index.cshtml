@@ -1,0 +1,132 @@
+﻿<html>
+<head>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row form-group">
+            <h1>设置工作流</h1>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-6">
+                <select class="form-control col-md-2" id="optionLive">
+                    <option>请假</option>
+                    <option>旷工</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-6">
+                <div class="table-bordered">
+                    <label class="radio-inline">
+                        <input type="radio" value="1天以下" name="days" checked="checked" />1天以下
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" value="2天以下" name="days" />2天以下
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" value="3天以下" name="days" />3天以下
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" value="3天以上" name="days" />3天以上
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-6">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-6">
+                <div class="table-bordered">
+                    <label class="radio-inline">
+                        <input type="radio" value="oenlev" name="audit"  id="one" checked="checked"/>一级审核
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" value="twolev" name="audit"  id="two"/>二级审核
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" value="threelev" name="audit"  id="three"/>三级审核
+                    </label>
+
+
+                </div>
+            </div>
+            <div class="col-md-6">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-6">
+                <div class="table-bordered">
+                    <select class="form-control col-md-2" id="dd1" name="seaudit">
+                        <option>选择一级审核</option>
+                    </select>
+                    <select class="form-control col-md-2" id="dd2" name="seaudit">
+                        <option>选择二级审核</option>
+                    </select>
+                    <select class="form-control col-md-2" id="dd3" name="seaudit">
+                        <option>选择三级审核</option>
+                    </select>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-6">
+                <input type="button" value="保存工作流程" onclick="save()" />
+            </div>
+            <div class="col-md-6">
+            </div>
+        </div>
+       
+    </div>
+</body>
+</html>
+<script>
+    $(function () {
+        var sepo = $("input[name='audit']:checked").val();
+        if (sepo =="oenlev") {
+            $("#dd1").show();
+            $("#dd2").hide();
+            $("#dd3").hide();
+        }
+        $("#one").click(function () {
+            $("#dd1").show();
+            $("#dd2").hide();
+            $("#dd3").hide();
+        })
+        $("#two").click(function () {
+            $("#dd1").show();
+            $("#dd2").show();
+            $("#dd3").hide();
+        })
+        $("#three").click(function () {
+            $("#dd1").show();
+            $("#dd2").show();
+            $("#dd3").show();
+        })
+
+      
+    })
+    function save() {
+        var first = $("#optionLive").val();
+        var second = $("input[name='audit']:checked").val();
+        var three = $("select[name='seaudit']:visible").val();
+
+        alert(first);
+        alert(second);
+      
+            alert(three);
+        
+       
+
+    }
+</script>
+
